@@ -1,0 +1,242 @@
+\section{Equação do Equilíbrio estático}
+
+Equação de equilíbrio é dado por,
+%
+\begin{equation}
+\nabla \bullet \pmb{T} + \pmb{b} = \pmb{0}	
+\end{equation}
+%
+\begin{equation}
+	\nabla \bullet \begin{bmatrix}
+		\sigma_x	& \tau_{xy}\\ 
+		\tau_{xy}   & \sigma_y
+	\end{bmatrix}
+    +
+    \begin{bmatrix}
+    b_x	\\
+    b_y 
+    \end{bmatrix}
+     = 
+    \begin{bmatrix}
+     	0	\\
+     	0 
+    \end{bmatrix}
+\end{equation}
+%
+\begin{equation}
+	\begin{bmatrix}
+		\frac{\partial \sigma_x}{\partial x}	+ \frac{\partial \tau_{xy}}{\partial y}\\ 
+		\frac{\partial \tau_{xy}}{\partial x} + \frac{\partial \sigma_y}{\partial y}
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		b_x	\\
+		b_y 
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		0	\\
+		0 
+	\end{bmatrix}
+\end{equation}
+%
+Portanto temos duas equações,
+%
+\begin{equation}
+	\begin{split}
+	\frac{\partial \sigma_x}{\partial x}	+ \frac{\partial \tau_{xy}}{\partial y} + b_x = 0\\
+    \frac{\partial \tau_{xy}}{\partial x} + \frac{\partial \sigma_y}{\partial y} + b_y = 0
+	\end{split}
+	\label{eq3:equilibrio}
+\end{equation}
+%
+
+As incógnitas são $\sigma_x$, $\sigma_y$ e $\tau_{xy}$ porém só temos 2 equações. Para solução do problema precisamos que o número de equações seja igual ao número de incógnitas. Para tal existe o método dos deslocamento,neste método  as equações de equilíbrio são escritas em termos do deslocamentos. Para tal vamos relacionar as tensões com as deformações e depois as deformações com os deslocamentos.
+
+Equação constitutiva
+%
+\begin{equation}
+\begin{bmatrix}
+	\sigma_x\\ 
+	\sigma_y\\
+	\tau_{xy}
+\end{bmatrix}
+=
+\begin{bmatrix}
+	a & b& 0\\ 
+	b & a& 0\\ 
+	0 & 0& c\\ 
+\end{bmatrix}
+\begin{bmatrix}
+    \epsilon_x\\ 
+	\epsilon_y\\ 
+	\gamma_{xy}\\  
+\end{bmatrix}
+\end{equation}
+%
+Multiplicando 
+%
+\begin{equation}
+	\begin{split}
+		&\sigma_x = a \epsilon_x + b \epsilon_y\\
+		&\sigma_y = b \epsilon_x + a \epsilon_y\\
+		&\tau_{xy} = c \gamma_{xy}
+	\end{split}
+\end{equation}
+%
+Relação da deformação com os deslocamentos,
+%
+\begin{equation}
+	\begin{split}
+		&\epsilon_x = \mdp{u}{x}\\
+		&\epsilon_y = \mdp{v}{y}\\
+		&\gamma_{xy} = \mdp{u}{y} + \mdp{v}{x}
+	\end{split}
+\end{equation}
+%
+Agora as tensões podem ser escritas em função do deslocamentos
+\begin{equation}
+	\begin{split}
+		&\sigma_x = a \mdp{u}{x} + b \mdp{v}{y}\\
+		&\sigma_y = b \mdp{u}{x} + a \mdp{v}{y}\\
+		&\tau_{xy} = c \left(\mdp{u}{y} + \mdp{v}{x}\right)
+	\end{split}
+\end{equation}
+%
+Calculando as derivadas
+%
+\begin{equation}
+	\begin{split}
+		&\mdp{\sigma_x}{x} = a \mdpv{u}{x} + b \mdph{v}{x}{y} \\
+		&\mdp{\sigma_y}{y} = b \mdph{u}{x}{y} + a \mdpv{v}{y}\\
+		&\mdp{\tau_{xy}}{x} = c \left(\mdph{u}{x}{y} + \mdpv{v}{x}\right)\\
+		&\mdp{\tau_{xy}}{y} = c \left(\mdpv{u}{y} + \mdph{v}{x}{y}\right)
+	\end{split}
+\end{equation}
+%
+Substituindo na equação (\ref{eq3:equilibrio})
+%
+\begin{equation}
+	\begin{split}
+		a \mdpv{u}{x} + b \mdph{v}{x}{y} + c \mdpv{u}{y} + c \mdph{v}{x}{y} + b_x = 0\\
+		c \mdph{u}{x}{y} + c \mdpv{v}{x} +  b \mdph{u}{x}{y} + a \mdpv{v}{y}  + b_y = 0		
+	\end{split}
+\end{equation}
+%
+Rearranjo do as equações,
+%
+\begin{equation}
+	\begin{split}
+		a \mdpv{u}{x} + c \mdpv{u}{y} + (b + c) \mdph{v}{x}{y} + b_x = 0\\
+		c \mdpv{v}{x} + a \mdpv{v}{y} + (b + c) \mdph{u}{x}{y} + b_y = 0		
+	\end{split}
+\end{equation}
+%
+Agora temos 2 equações e 2 incógnitas ($u$, $v$) , problema esta matematicamente fechado. 
+
+\subsection{Condição de contorno natural}
+
+Condição de contorno natural é quando prescrevemos força no contorno.
+%
+\begin{equation}
+	\begin{bmatrix}
+		\bar t_x\\ 
+		\bar t_y
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\sigma_x & \tau_{xy}\\ 
+		\tau_{xy}& \sigma_y 
+	\end{bmatrix}
+	\begin{bmatrix}
+		n_x\\ 
+		n_y\\  
+	\end{bmatrix}
+\end{equation}
+%
+Multiplicando
+%
+\begin{equation}
+	\begin{bmatrix}
+		\bar t_x\\ 
+		\bar t_y
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\sigma_x n_x + \tau_{xy} n_y\\ 
+		\tau_{xy} n_x+ \sigma_y n_y\\  
+	\end{bmatrix}
+\end{equation}
+%
+Escrevendo em forma de equações
+%
+\begin{equation}
+	\begin{split}
+		\bar t_x =  \left( a \mdp{u}{x} + b \mdp{v}{y} \right) n_x + c \left(\mdp{u}{y} + \mdp{v}{x}\right) n_y\\
+		\bar t_y = c \left(\mdp{u}{y} + \mdp{v}{x}\right) n_x + \left( b \mdp{u}{x} + a \mdp{v}{y} \right) n_y
+	\end{split}
+\end{equation}
+%
+\subsection{Matriz de coeficientes}
+%
+Calculo de $\mathbf{B_i}$,
+%
+\begin{equation}
+\begin{split}
+&\mathbf{B_i} = \pounds  \mathbf{N_i}	\\
+&\mathbf{B_i} = \begin{bmatrix}
+	\mdp{}{x} & 0 \\ 
+	0         & \mdp{}{y} \\
+	\mdp{}{y} & \mdp{}{x}       
+\end{bmatrix}
+\begin{bmatrix}
+	N_i & 0\\ 
+	0   & N_i
+\end{bmatrix}\\
+&\mathbf{B_i} = \begin{bmatrix}
+	\mdp{N_i}{x} & 0 \\ 
+	0         & \mdp{N_i}{y} \\
+	\mdp{N_i}{y} & \mdp{N_i}{x}       
+\end{bmatrix}
+\end{split}
+\end{equation}
+%
+Calculo de $\mathbf{B_i} \mathbf{D} \mathbf{B_j}$,
+%
+\begin{equation}
+	\begin{split}
+&\mathbf{B_i} \mathbf{D} \mathbf{B_j}
+	=
+	\begin{bmatrix}
+		\mdp{N_i}{x} & 0             & \mdp{N_i}{y}\\ 
+		0            & \mdp{N_i}{y}  & \mdp{N_i}{x}
+	\end{bmatrix}
+	\begin{bmatrix}
+		a & b& 0\\ 
+		b & a& 0\\ 
+		0 & 0& c\\ 
+	\end{bmatrix}
+	\begin{bmatrix}
+	\mdp{N_j}{x} & 0\\ 
+	0            & \mdp{N_j}{y}\\
+ 	\mdp{N_j}{y} & \mdp{N_j}{x}
+	\end{bmatrix}\\
+&\mathbf{B_i} \mathbf{D} \mathbf{B_j}
+	=
+	\begin{bmatrix}
+		a \mdp{N_i}{x} & 	b \mdp{N_i}{x} & c \mdp{N_i}{y}\\ 
+		b \mdp{N_i}{y} & 	a \mdp{N_i}{y} & c \mdp{N_i}{x}
+	\end{bmatrix}
+	\begin{bmatrix}
+		\mdp{N_j}{x} & 0\\ 
+		0            & \mdp{N_j}{y}\\
+		\mdp{N_j}{y} & \mdp{N_j}{x}
+	\end{bmatrix}\\
+&\mathbf{B_i} \mathbf{D} \mathbf{B_j}
+=
+\begin{bmatrix}
+	a \mdp{N_i}{x}\mdp{N_j}{x} + c \mdp{N_i}{y}\mdp{N_j}{y} & 	b \mdp{N_i}{x}\mdp{N_i}{y} + c \mdp{N_i}{y}\mdp{N_j}{y}\\ 
+	b \mdp{N_i}{y}\mdp{N_j}{x} + c \mdp{N_i}{x}\mdp{N_j}{y} & 	a \mdp{N_i}{y}\mdp{N_j}{y} + c \mdp{N_i}{x}\mdp{N_j}{x}
+\end{bmatrix}
+\end{split}
+\end{equation}

@@ -1,0 +1,205 @@
+\section{Formulação variacional}
+%
+Para considerando a equação diferencial:
+%
+\begin{equation}
+	 \frac{d^2u}{dx^2} + f(x) = 0
+	 \label{eq1:eq_dif}
+\end{equation}
+%
+A formulação variacional pode-se ser obtida multiplicado e integrando a eq. (\ref{eq1:eq_dif}) em todo o domínio $L$.
+%
+\begin{equation}
+	\int_0^L\left( \frac{d^2u}{dx^2} + f(x) \right) w(x) dx = 0
+\end{equation}
+%
+Usando a regra da soma de integrais temos,
+%
+\begin{equation}
+	\int_0^L \frac{d^2u}{dx^2} w(x) dx + \int_0^L f(x) w(x) dx= 0
+\end{equation}
+%
+Focando apenas no primeiro termo,
+%
+\begin{equation}
+	\int_0^L \frac{d^2u}{dx^2} w(x) dx  = \frac{du}{dx} w(x) \mid_0^L - \int_0^L \frac{du}{dx} \frac{dw}{dx} dx 
+	\label{eq1:integral_por_partes}
+\end{equation}
+%
+O que leva à,
+
+\begin{equation}
+	\frac{du}{dx} w \mid_0^L - \int_0^L \frac{du}{dx} \frac{dw}{dx} dx  + \int_0^L f(x) w(x) dx= 0
+\end{equation}
+%
+\subsection{Integral por partes}
+%
+Para chegar na eq. (\ref{eq1:integral_por_partes}) considere primeiro a regra do produto parada derivas para duas funções genéricas $a(x)$ e $b(x)$:
+%
+\begin{equation}
+	\frac{d(ab)}{dx} = \frac{da}{dx} b + \frac{db}{dx} a
+\end{equation}
+%
+Integrando em ambos os lados,
+%
+\begin{equation}
+	\int_0^L \frac{d(ab)}{dx} dx = \int_0^L \frac{da}{dx} b dx + \int_0^L \frac{db}{dx} a dx
+\end{equation}
+%
+A integral e a deriva se cancelam no primeiro termo,
+%
+\begin{equation}
+	ab|_0^L = \int_0^L \frac{da}{dx} b dx + \int_0^L \frac{db}{dx} a dx
+\end{equation}
+%
+Considerando agora que $a(x) = \frac{du}{dx}$ e $b(x) = w(x)$, portanto 
+%
+\begin{equation}
+	\frac{du}{dx} w|_0^L = \int_0^L \frac{d^2u}{dx^2} w dx + \int_0^L \frac{dw}{dx} \frac{du}{dx} dx
+	\label{eq1:formu_var}
+\end{equation}
+%
+levando assim  a eq (\ref{eq1:integral_por_partes}).
+%
+\subsection{Resíduos ponderados}
+%
+A aproximando $u(x)$ por $\hat u(x)$ eq. (\ref{eq1:eq_dif}) não e mais resolvida de maneira exata sobrenado um resíduo $R(x)$,
+%
+\begin{equation}
+	\frac{d^2 \hat u}{dx^2} + f(x) = R(x)
+\end{equation}
+%
+A ideia é reduzir este resíduo usando uma aproximação da função peso $\hat w(x)$.
+%
+\begin{equation}
+	\int_0^L R(x) \hat w(x) dx=  \int_0^L\left( \frac{d^2\hat u}{dx^2} + f(x) \right) \hat w(x) dx = 0
+\end{equation}
+%
+Os métodos do Elementos Finitos, Diferença Finita e Volume Finitos são gerados pelas diferentes escolhas das funções $w$. Usando a formulação variacional eq. \ref{eq1:formu_var} temos,
+%
+\begin{equation}
+	\int_0^L \frac{d \hat u}{dx} \frac{d \hat w}{dx} dx  =  	\frac{d \hat u}{dx} \hat w \mid_0^L + \int_0^L f(x) \hat w(x) dx
+	\label{eq1:Residuo_ponderados}
+\end{equation}
+%
+\subsection{Aproximações}
+%
+As aproximações de $\hat u(x)$ e $\hat w(x)$ são dada por,
+%
+\begin{align}
+	&\hat u(x) = \sum_{j = 1}^n N_j(x) u_j\\
+	&\hat w(x) = \sum_{i = 1}^n N_i(x) w_i
+\end{align}
+%
+onde $n$ é o número de pontos na malha. Substituindo $\hat w(x)$ na eq. (\ref{eq1:Residuo_ponderados})
+%
+\begin{equation}
+\begin{split}
+	\int_0^L \frac{d \hat u}{dx} \frac{d}{dx} \left(\sum_{i = 1}^n N_i(x) w_i\right) dx = \frac{d \hat u}{dx} \left(\sum_{i = 1}^n N_i(x) w_i\right) \mid_0^L  \\ + \int_0^L f(x)\left(\sum_{i = 1}^n N_i(x) w_i\right) dx
+\end{split}
+\end{equation}
+%
+Para o primeiro termo temos,
+%
+\begin{equation}
+\begin{split}
+	\int_0^L \frac{d \hat u}{dx} \frac{d}{dx} \left(\sum_{i = 1}^n N_i(x) w_i\right) dx =	\int_0^L \frac{d \hat u}{dx}  \frac{d}{dx} \left( N_1 w_1 + ... + N_n w_n \right) dx\\
+	=\int_0^L \frac{d \hat u}{dx}  \left( \frac{dN_1}{dx} w_1 + ... + \frac{dN_n}{dx} w_n \right) dx\\
+	=\int_0^L \frac{d \hat u}{dx}  \frac{dN_1}{dx} w_1 dx + ... + \int_0^L \frac{d \hat u}{dx}  \frac{dN_n}{dx} w_n dx\\
+	=w_1 \int_0^L \frac{d \hat u}{dx}  \frac{dN_1}{dx} dx + ... + w_n \int_0^L \frac{d \hat u}{dx}  \frac{dN_n}{dx}  dx
+\end{split}
+\label{eq1:p_termo}
+\end{equation}
+%
+Para o segundo termo temos,
+%
+\begin{equation}
+	\begin{split}
+	\frac{d \hat u}{dx} \left(\sum_{i = 1}^n N_i(x) w_i\right) \mid_0^L = w_1  \frac{d \hat u}{dx} N_1(x) \mid_0^L + ... + w_n \frac{d \hat u}{dx} N_n(x) \mid_0^L
+	\end{split}
+\label{eq1:s_termo}
+\end{equation}
+%
+Para o terceiro termo temos,
+%
+\begin{equation}
+	\begin{split}
+		\int_0^L f(x)\left(\sum_{i = 1}^n N_i(x) w_i\right) dx = \int_0^L f(x)\left(N_1(x) u_1 + ... + N_n(x) w_n\right) dx\\
+		= w_1 \int_0^L f(x) N_1(x) dx + ... + w_n \int_0^L f(x) N_n(x) dx
+	\end{split}
+\label{eq1:t_termo}
+\end{equation}
+%
+%---------------------------------------------------------------------------
+%
+Juntando as eqs. (\ref{eq1:p_termo}), (\ref{eq1:s_termo}) e (\ref{eq1:t_termo}) temos,
+%
+\begin{equation}
+	\begin{split}
+    w_1 \int_0^L \frac{d \hat u}{dx}  \frac{dN_1}{dx} dx + ... + w_n \int_0^L \frac{d \hat u}{dx}  \frac{dN_n}{dx}  dx =\\
+    w_1  \frac{d \hat u}{dx} N_1(x) \mid_0^L + ... + w_n \frac{d \hat u}{dx} N_n(x) \mid_0^L \\
+    + w_1 \int_0^L f(x) N_1(x) dx + ... + w_n \int_0^L f(x) N_n(x) dx
+	\end{split}
+\end{equation}
+%
+Isolando agora os $w_i$,
+
+\begin{equation}
+	\begin{split}
+		&w_1 \left(\int_0^L \frac{d \hat u}{dx}  \frac{dN_1}{dx} dx -  \frac{d \hat u}{dx} N_1(x) \mid_0^L -\int_0^L f(x) N_1(x) dx \right)\\
+		&+ ... + \\
+		&w_n \left(\int_0^L \frac{d \hat u}{dx}  \frac{dN_n}{dx} dx -  \frac{d \hat u}{dx} N_n(x) \mid_0^L -\int_0^L f(x) N_n(x) dx \right) = 0
+	\end{split}
+	\label{eq1:somatorio_i}
+\end{equation}
+%
+Para que a eq (\ref{eq1:somatorio_i}) seja sempre verdade ou os $w_i$ são todos nulos ou as expressões são nulas. Fazer todos $w_i$ nulos não tem utilidade, logo a melhor opção é fazer todas as expressões dentro dos parenteses nulas. Assim nos temos um conjunto $n$ equações,
+%
+\begin{equation}
+	\begin{split}
+		&\int_0^L \frac{d \hat u}{dx}  \frac{dN_1}{dx} dx -  \frac{d \hat u}{dx} N_1(x) \mid_0^L -\int_0^L f(x) N_1(x) dx  = 0\\
+		&...\\
+		&\int_0^L \frac{d \hat u}{dx}  \frac{dN_n}{dx} dx -  \frac{d \hat u}{dx} N_n(x) \mid_0^L -\int_0^L f(x) N_n(x) dx  = 0\\
+	\end{split}
+	\label{eq1:equacoes_i}
+\end{equation} 
+%
+Ainda falta substituir o $\hat u$, para a primeira integral,
+%
+\begin{equation}
+	\begin{split}
+	\int_0^L \frac{d \hat u}{dx}  \frac{dN_i}{dx} dx = \int_0^L \frac{d}{dx}\left(\sum_{j = 1}^n N_j(x) u_j\right)  \frac{dN_i}{dx} dx\\
+	 = \int_0^L \frac{d}{dx} \left( N_1(x) u_1 + ... N_n(x) u_n \right) \frac{dN_i}{dx} dx\\
+	 = \int_0^L \frac{d}{dx} \left( N_1(x) u_1 \right) \frac{dN_i}{dx} dx + ... + \int_0^L \frac{d}{dx} \left( N_n(x) u_n \right) \frac{dN_i}{dx} dx\\
+	 = u_1 \int_0^L \frac{N_1}{dx} \frac{dN_i}{dx} dx + ... + u_n \int_0^L \frac{d N_n}{dx} \frac{dN_i}{dx} dx
+	\end{split}
+\end{equation} 
+%
+Substituindo nas eqs. (\ref{eq1:equacoes_i}) chegamos ao sistema final de equações.
+%
+\begin{equation*}
+	\begin{split}
+		& u_1 \int_0^L \frac{N_1}{dx} \frac{dN_i}{dx} dx + ... + u_n \int_0^L \frac{d N_n}{dx} \frac{dN_i}{dx} dx -  \frac{d \hat u}{dx} N_1(x) \mid_0^L -\int_0^L f(x) N_1(x) dx  = 0\\
+		&...\\
+		& u_1 \int_0^L \frac{N_1}{dx} \frac{dN_n}{dx} dx + ... + u_n \int_0^L \frac{d N_n}{dx} \frac{dN_n}{dx} dx -  \frac{d \hat u}{dx} N_n(x) \mid_0^L -\int_0^L f(x) N_n(x) dx  = 0\\
+	\end{split}
+\end{equation*}
+%
+Definido os $k_{ij}$ e $f_{i}$, 
+\begin{equation}
+	\begin{split}
+	&k_{ij} = \int_0^L \frac{N_j}{dx} \frac{dN_i}{dx}\\
+	&f_{i} = \int_0^L f(x) N_i(x) dx + \frac{d \hat u}{dx} N_i(x) \mid_0^L
+	\end{split}
+\end{equation}
+%
+Pode-se escrever os sistema de equações final como,
+
+\begin{equation}
+	\begin{split}
+		& u_1 k_{11} + ... + u_n k_{1n} -  f_i  = 0\\
+		&...\\
+		& u_1 k_{n1} + ... + u_n k_{nn} -  f_n  = 0
+	\end{split}
+\end{equation}
+%---------------------------------------------------------------------------

@@ -1,0 +1,61 @@
+%
+\section{Equação de transferência de calor }
+%
+A equação de calor é dada por,
+%
+\begin{equation}
+	\frac{\partial( \rho c_p T )}{\partial t} = \bar \nabla \bullet ( k \bar \nabla T ) + Q(x, y, z, t)
+\end{equation}
+%
+onde $\rho$ é massa especifica, $c_p$ é o calor especifico, $k$ é coeficiente de condutividade térmica e $Q(x, y, z, t)$ é um termo fonte de geração de calor.  
+%
+Considerando o regime permanente temos,
+%
+\begin{equation}
+	\bar \nabla \bullet ( k \bar \nabla T ) + Q(x, y, z) = 0
+\end{equation}
+%
+Agora considerando que o $k$ é constante,
+%
+\begin{equation}
+	\begin{split}
+		k\left(\bar \nabla \bullet \bar \nabla T\right) + Q(x, y, z) = 0\\	 
+		k \nabla^2 T + Q(x, y, z) = 0
+	\end{split}
+\end{equation}
+%
+Dividindo $k$
+%
+\begin{equation}
+	\begin{split}
+		\nabla^2 T = -Q(x, y, z)/ k = 0\\	 
+		\nabla^2 T = Q^*(x, y, z)
+	\end{split}
+\end{equation}
+%
+A equação abaixo é conhecida com Equação de Poisson
+%
+\begin{equation}
+	\nabla^2 T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} = Q^*(x, y, z)	
+\end{equation}
+%
+A equação de Laplace é a equação de Poisson com termo fonte nulo,
+%
+\begin{equation}
+	\nabla^2 T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} = 0
+\end{equation}
+%
+Para um problema 1D a equações de Poisson fica,
+%
+\begin{equation}
+	\frac{\partial^2 T}{\partial x^2} = \frac{d^2 T}{d x^2} = Q^*(x)	
+\end{equation}
+%
+%
+\section{Equação de transporte de calor }
+%
+A equação de transporte de calor é dada por,
+%
+\begin{equation}
+	\frac{\partial( \rho c_p T )}{\partial t} + \bar \nabla \bullet (\rho c_p \pmb{\bar v} T ) = \bar \nabla \bullet ( k \bar \nabla T ) + Q(x, y, z, t)
+\end{equation}
