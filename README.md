@@ -9,5 +9,4 @@ O [Pdf](https://github.com/HenriqueCCdA/ElementosFinitosCurso/blob/main/latex/Li
 
 ## Referência
 
-["**Introdução ao Método dos Elementos Finitos**" - FERNANDO LUIZ B. RIBEIRO,1ª Edição,2020
-304 Páginas, ISBN: 9786558420118](https://www.lcm.com.br/site/#livros/detalhesLivro/introducao-ao-metodo-dos-elementos-finitos.html)
+[RIBEIRO, F. B. L. "**Introdução ao Método dos Elementos Finitos**",1ª Edição, 2020, 304 Páginas, ISBN: 9786558420118.](https://www.lcm.com.br/site/#livros/detalhesLivro/introducao-ao-metodo-dos-elementos-finitos.html)
