@@ -7,3 +7,7 @@ Repositório guarda os materias de estudo do curso de Posgradução **Introduç�
 
 O [Pdf](https://github.com/HenriqueCCdA/ElementosFinitosCurso/blob/main/latex/Livro_estudos.pdf) possui alguns exercios resolvidos e a memória de cálculo de alguns pontos chaves abordados no curso.
 
+## Referência
+
+["**Introdução ao Método dos Elementos Finitos**" - FERNANDO LUIZ B. RIBEIRO,1ª Edição,2020
+304 Páginas, ISBN: 9786558420118](https://www.lcm.com.br/site/#livros/detalhesLivro/introducao-ao-metodo-dos-elementos-finitos.html)
