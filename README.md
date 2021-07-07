@@ -5,7 +5,7 @@ Repositório guarda os materias de estudo do curso de Posgradução **Introduç�
 
 ## PDF
 
-O [Pdf](https://github.com/HenriqueCCdA/ElementosFinitosCurso/blob/main/latex/Livro_estudos.pdf) possui alguns exercios resolvidos e a memória de cálculo de alguns pontos chaves abordados no curso.
+O [Pdf](https://github.com/HenriqueCCdA/ElementosFinitosCurso/blob/main/latex/Livro_estudos.pdf) possui alguns exercícios resolvidos e a memória de cálculo de alguns pontos chaves abordados no curso.
 
 ## Referência
 
