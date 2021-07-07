@@ -6,6 +6,18 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage[export]{adjustbox}
+\usepackage{bookmark}
+
+% auto referencia
+\usepackage{hyperref}
+\hypersetup{
+	%	hidelinks=true,
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,   
+	urlcolor=blue,
+}
+
 
 \setlength\parindent{0pt}
 \newcommand{\mdp}[2]{\frac{\partial #1}{\partial #2}}
@@ -13,12 +25,21 @@
 \newcommand{\mdph}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
 %---------------------------------------------------------------------------
 
+\renewcommand*\contentsname{Índices}
+
 \begin{document}
+	
+% -------------------------------------------------------------------------- 
+\tableofcontents
+% -------------------------------------------------------------------------- 
+
 %---------------------------------------------------------------------------
 \include{cap/cap2}
 \include{cap/cap3}
 \include{cap/cap6}
 \include{cap/operadores}
 \include{cap/equacao_calor}
+%---------------------------------------------------------------------------
+
 \end{document}
 %---------------------------------------------------------------------------

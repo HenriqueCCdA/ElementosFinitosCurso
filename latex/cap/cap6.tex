@@ -2,7 +2,7 @@
 
 \subsection{Exercícios}
 
-\subsubsection{Determinar as funções de interpolação dos elementos}
+\subsubsection{1) Determinar as funções de interpolação dos elementos}
 %
 \begin{itemize}
 	\item a)
@@ -11,6 +11,7 @@
 	\caption{Questão a)} 
 	\label{cap6:cap6_1_a}
 \end{figure}
+%
 \end{itemize}
 %
 As funções de interpolação serão definidas através das funções bilineares. Considerando a Figura \ref{cap6:quad_bilinear_0}, 
@@ -83,7 +84,7 @@ As aresta do nós 2 e 3 não possuem nós intermediários, portanto as função 
 \end{equation}
 \color{black}
 
-\subsubsection{Calcular o operador Jacobiano dos seguintes elementos}
+\subsubsection{2) Calcular o operador Jacobiano dos seguintes elementos}
 
 O Jacobiano 2D é definido por:
 %
@@ -258,9 +259,192 @@ Resolvendo agora as questões:
 		\end{split}
 	\end{equation}
 	%	
-\end{itemize}
+	\item b)
+	Considerando o ponto $P_3$ como referencia, temos as seguintes coordenadas para os pontos,
+	%
+	\begin{equation}
+		\begin{split}
+		&	P_1 = (x_3 + 7, y_3 + 2)\\
+		&	P_2 = (x_3 + 1, y_3 + 2)\\
+		&	P_3 = (x_3    , y_3    )\\
+		&	P_4 = (x_3 + 6, y_3    )\\
+		\end{split}
+	\end{equation}
+	%
+	Nos temos agora que para os $xs$,
+	\begin{equation}
+	\begin{split}
+		&	(x_1 - x_2) = x_3 + 7 - (x_3 + 1) = 6 \\
+		&	(x_4 - x_3) = x_3 + 6 - x_3 = 6\\
+		&	(x_1 - x_4) = x_3 + 7 - (x_3 + 6) = 1\\\
+		&	(x_2 - x_3) = x_3 + 1 - x_3 = 1\\
+	\end{split}
+	\end{equation}
+	%
+	e para os $ys$,
+	\begin{equation}
+	\begin{split}
+		&	(y_1 - y_2) = y_3 + 2 - (y_3 + 2) = 0 \\
+		&	(y_4 - y_3) = y_3 - y_3 = 0\\
+		&	(y_1 - y_4) = y_3 + 2 - y_3 = 2\\\
+		&	(y_2 - y_3) = y_3 + 2 - y_3 = 2\\
+	\end{split}
+	\end{equation}
+	%
+	\begin{equation}
+	\begin{split}
+		&	\mdp{x}{\xi } = \frac{1}{4}\left[ 6(1 + \eta) + 6(1 - \eta) \right] = 3\\
+		&   \mdp{y}{\xi } = \frac{1}{4}\left[ 0(1 + \eta) + 0(1 - \eta) \right] = 0\\
+		&   \mdp{x}{\eta} = \frac{1}{4}\left[ 1(1 + \xi ) + 1(1 - \xi ) \right] = \frac{1}{2}\\
+		&   \mdp{y}{\eta} = \frac{1}{4}\left[ 2(1 + \xi ) + 2(1 - \xi ) \right] = 1
+	\end{split}
+	\end{equation}
+	%
+	Portando o operador Jacobiano é dado por,
 
-\subsubsection{Calcular as forças nodais equivalentes para os elementos de elasticidades plana abaixo, considerando uma distribuição uniforme de forças de volume na direção y}
+	\color{blue}
+	\textbf{Resposta:}
+	\begin{equation}
+	J(\xi, \eta) = 
+	\begin{bmatrix}
+		3 & 0\\
+		\frac{1}{2} & 1\\
+	\end{bmatrix}
+	\end{equation}	
+	\color{black}
+	% 
+	Pode-se checar o resultado através do calculo da área do elemento,
+	\begin{equation}
+		\begin{split}
+		& A = b * h = \int_A dA = \int_{-1}^1 \int_{-1}^1 det J d\xi d\eta\\
+		& 2 * 6 = \int_{-1}^1 \int_{-1}^1 \left(3 * 1\right)  d\xi d\eta\\
+		& 2 * 6 = 3 * 2 * 2 \\
+		& 12 = 12		
+		\end{split}
+	\end{equation}
+	%
+	%	
+	\item c)
+	Considerando o ponto $P_3$ como referencia, temos as seguintes coordenadas para os pontos,
+	%
+	\begin{equation}
+		\begin{split}
+			&	P_1 = (x_3 + 2, y_3 + 2)\\
+			&	P_2 = (x_3    , y_3 + 1)\\
+			&	P_3 = (x_3    , y_3    )\\
+			&	P_4 = (x_3 + 2, y_3    )\\
+		\end{split}
+	\end{equation}
+	%
+	Nos temos agora que para os $xs$,
+	\begin{equation}
+		\begin{split}
+			&	(x_1 - x_2) = x_3 + 2 - x_3 = 2 \\
+			&	(x_4 - x_3) = x_3 + 2 - x_3 = 2\\
+			&	(x_1 - x_4) = x_3 + 2 - (x_3 + 2) = 0\\\
+			&	(x_2 - x_3) = x_3  - x_3 = 0\\
+		\end{split}
+	\end{equation}
+	%
+	e para os $ys$,
+	\begin{equation}
+		\begin{split}
+			&	(y_1 - y_2) = y_3 + 2 - (y_3 + 1) = 1 \\
+			&	(y_4 - y_3) = y_3 - y_3 = 0\\
+			&	(y_1 - y_4) = y_3 + 2 - y_3 = 2\\\
+			&	(y_2 - y_3) = y_3 + 1 - y_3 = 1\\
+		\end{split}
+	\end{equation}
+	%
+	\begin{equation}
+		\begin{split}
+			&	\mdp{x}{\xi } = \frac{1}{4}\left[ 2(1 + \eta) + 2(1 - \eta) \right] = 1\\
+			&   \mdp{y}{\xi } = \frac{1}{4}\left[ 1(1 + \eta) + 2(1 - \eta) \right] = \frac{3 - \eta}{4}\\
+			&   \mdp{x}{\eta} = \frac{1}{4}\left[ 0(1 + \xi ) + 0(1 - \xi ) \right] = 0\\
+			&   \mdp{y}{\eta} = \frac{1}{4}\left[ 2(1 + \xi ) + 1(1 - \xi ) \right] = \frac{3 + \xi}{4}
+		\end{split}
+	\end{equation}
+	%
+	Portando o operador Jacobiano é dado por,
+	
+	\color{blue}
+	\textbf{Resposta:}
+	\begin{equation}
+		J(\xi, \eta) = 
+		\begin{bmatrix}
+			1 & \frac{3 - \eta}{4}\\
+			0 & \frac{3 + \xi}{4}\\
+		\end{bmatrix}
+	\end{equation}	
+	\color{black}
+	% 
+	Pode-se checar o resultado através do calculo da área do elemento,
+	\begin{equation}
+		\begin{split}
+			& A = \frac{(b + B) * h}{2} = \int_A dA = \int_{-1}^1 \int_{-1}^1 det J d\xi d\eta\\
+			& \frac{(1 + 2) * 2}{2} = \int_{-1}^1 \int_{-1}^1 \left(\frac{3 + \xi}{4}\right)  d\xi d\eta\\
+			& \frac{3 * 2}{2} = \frac{1}{4} * 2 * 6 \\
+			& 3 = 3		
+		\end{split}
+	\end{equation}		
+%
+\end{itemize}
+%
+\subsubsection{4) Determine as funções de interpolação de um hexaedro quadrático}
+%
+\begin{figure}[H]
+		\includegraphics[width=0.6\textwidth,center]{fig/hexaedro_20.PNG}
+		\caption{Hexaedros 20 nós} 
+\end{figure}
+%
+Pontos $(\xi,\eta,\zeta)$,
+%
+\begin{equation*}
+		\begin{matrix}
+		P_1 = ( 1, 1, 1)	& P_5 = ( 1, 1,-1)&P_{17} = ( 1, 1,0)\\ 
+		P_2 = (-1, 1, 1)	& P_6 = (-1, 1,-1)&P_{18} = (-1, 1,0)\\
+		P_3 = (-1,-1, 1)    & P_7 = (-1,-1,-1)&P_{19} = (-1,-1,0)\\ 
+		P_4 = ( 1,-1, 1)    & P_8 = ( 1,-1,-1)&P_{20} = ( 1,-1,0)
+		\end{matrix}
+\end{equation*}
+%
+\begin{equation*}
+	\begin{matrix}
+	P_9    = (  0, 1, 1) &P_{13} = ( 0, 1, -1)\\
+	P_{10} = ( -1, 0, 1) &P_{14} = (-1, 0, -1)\\
+	P_{11} = (  0,-1, 1) &P_{15} = ( 0,-1, -1)\\
+	P_{12} = (  1, 0, 1) &P_{16} = ( 1, 0, -1)
+	\end{matrix}
+\end{equation*}
+%
+Funções de interpolações:
+%
+\begin{equation}
+	\begin{split}
+		& N_1 = \frac{1}{8}(1+\xi)(1+\eta)(1+\zeta)( \xi + \eta + \zeta - 2)\\
+		& N_2 = \frac{1}{8}(1-\xi)(1+\eta)(1+\zeta)(-\xi + \eta + \zeta - 2)\\
+		& N_3 = \frac{1}{8}(1-\xi)(1-\eta)(1+\zeta)(-\xi - \eta + \zeta - 2)\\
+		& N_4 = \frac{1}{8}(1+\xi)(1-\eta)(1+\zeta)(-\xi + \eta + \zeta - 2)\\	
+		& N_5 = \frac{1}{8}(1+\xi)(1+\eta)(1-\zeta)( \xi + \eta - \zeta - 2)\\
+		& N_6 = \frac{1}{8}(1-\xi)(1+\eta)(1-\zeta)(-\xi + \eta - \zeta - 2)\\
+		& N_7 = \frac{1}{8}(1-\xi)(1-\eta)(1-\zeta)(-\xi - \eta - \zeta - 2)\\
+		& N_8 = \frac{1}{8}(1+\xi)(1-\eta)(1-\zeta)(-\xi + \eta - \zeta - 2)\\	
+		& N_9    = \frac{1}{4}(1-\xi^2)(1+\eta)(1+\zeta)\\
+		& N_{11} = \frac{1}{4}(1-\xi^2)(1-\eta)(1+\zeta)\\
+		& N_{13} = \frac{1}{4}(1-\xi^2)(1+\eta)(1-\zeta)\\
+		& N_{15} = \frac{1}{4}(1-\xi^2)(1-\eta)(1-\zeta)\\
+		& N_{10} = \frac{1}{4}(1-\eta^2)(1-\xi)(1+\zeta)\\
+		& N_{12} = \frac{1}{4}(1-\eta^2)(1+\xi)(1+\zeta)\\
+		& N_{14} = \frac{1}{4}(1-\eta^2)(1-\xi)(1-\zeta)\\	
+		& N_{16} = \frac{1}{4}(1-\eta^2)(1+\xi)(1-\zeta)\\		
+		& N_{17} = \frac{1}{4}(1-\zeta^2)(1+\xi)(1+\eta)\\
+		& N_{18} = \frac{1}{4}(1-\zeta^2)(1-\xi)(1+\eta)\\
+		& N_{19} = \frac{1}{4}(1-\zeta^2)(1-\xi)(1-\eta)\\	
+		& N_{20} = \frac{1}{4}(1-\zeta^2)(1+\xi)(1-\eta)\\	
+	\end{split}
+\end{equation}	
+%
+\subsubsection{5) Calcular as forças nodais equivalentes para os elementos de elasticidades plana abaixo, considerando uma distribuição uniforme de forças de volume na direção y}
 
 A integral de forças de volume é(pag. 22),
 %
@@ -445,7 +629,7 @@ Para resolver o problema precisamos apenas calcular essas integrais.
 %
 \end{itemize}
 
-\subsubsection{Calcular as forças nodais equivalentes para os elementos quadriláteros quadrático de elasticidade plana}
+\subsubsection{6) Calcular as forças nodais equivalentes para os elementos quadriláteros quadrático de elasticidade plana}
 
 A integral de forças de volume é(pag. 22),
 %
@@ -474,14 +658,14 @@ em notação matricial temos,
 	=
 	\int_{\Gamma}
 	\begin{bmatrix}
-		N_i t_x\\
-		N_i t_y\\
+		N_i q_x\\
+		N_i q_y\\
 	\end{bmatrix}
 	d\Gamma
 	=
 	\begin{bmatrix}
-		\int_{\Gamma} N_i t_x d\Gamma\\
-		\int_{\Gamma} N_i t_y d\Gamma
+		\int_{\Gamma} N_i q_x d\Gamma\\
+		\int_{\Gamma} N_i q_y d\Gamma
 	\end{bmatrix}
 \end{equation}
 %
@@ -494,8 +678,8 @@ Como a força são uniformes nos bordos,
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		t_x \int_{\Gamma} N_i d\Gamma\\
-		t_y \int_{\Gamma} N_i d\Gamma
+		q_x \int_{\Gamma} N_i d\Gamma\\
+		q_y \int_{\Gamma} N_i d\Gamma
 	\end{bmatrix}
 \end{equation}
 %
@@ -503,11 +687,11 @@ Portanto temos,
 %
 \begin{equation}
 \begin{split}
-&f^x_2 = t_x \int_{\Gamma} N_2 d\Gamma \quad f^y_2 = 0\\
-&f^x_6 = t_x \int_{\Gamma} N_6 d\Gamma \quad f^y_6 = 0\\
-&f^x_3 = t_x \int_{\Gamma} N_3 d\Gamma \quad f^y_3 =  t_y \int_{\Gamma} N_3 d\Gamma\\
-&f^x_7 = 0 \quad f^y_7 =  t_y \int_{\Gamma} N_7 d\Gamma\\
-&f^x_4 = 0 \quad f^y_4 = t_y \int_{\Gamma} N_4 d\Gamma
+&f^x_2 = q_x \int_{\Gamma} N_2 d\Gamma \quad f^y_2 = 0\\
+&f^x_6 = q_x \int_{\Gamma} N_6 d\Gamma \quad f^y_6 = 0\\
+&f^x_3 = q_x \int_{\Gamma} N_3 d\Gamma \quad f^y_3 =  q_y \int_{\Gamma} N_3 d\Gamma\\
+&f^x_7 = 0 \quad f^y_7 =  q_y \int_{\Gamma} N_7 d\Gamma\\
+&f^x_4 = 0 \quad f^y_4 = q_y \int_{\Gamma} N_4 d\Gamma
 \end{split}
 \end{equation}
 %
@@ -516,8 +700,8 @@ Como a integral é apenas nos bordos, na aresta 2-3 temos, as seguintes funçõe
 \begin{equation}
 	\begin{split}
 		&N_2 = \frac{1}{2} \eta (1 + \eta) \\ 
-		&N_6 = \eta (1 - \eta) (1 + \eta) \\ 
-		&N_3 = -\frac{1}{2} \eta (1 - \eta)  
+		&N_6 = (1 + \eta) (1 - \eta) \\ 
+		&N_3 = \frac{1}{2} \eta (\eta - 1)  
 	\end{split}
 \end{equation}
 %
@@ -533,8 +717,8 @@ Como a integral é apenas nos bordos, na aresta 3-4 temos, as seguintes funçõe
 %
 \begin{equation}
 	\begin{split}
-		&N_3 = -\frac{1}{2} \xi (1 - \xi) \\ 
-		&N_7 = \xi (1 - \xi) (1 + \xi) \\ 
+		&N_3 = \frac{1}{2} \xi (\xi - 1) \\ 
+		&N_7 = (1 + \xi) (1 - \xi) \\ 
 		&N_4 = \frac{1}{2} \xi (1 + \xi)  
 	\end{split}
 \end{equation}
@@ -552,11 +736,11 @@ Portanto temos,
 %
 \begin{equation}
 	\begin{split}
-		&f^x_2 = \frac{t_x L}{6} \quad f^y_2 = 0\\
-		&f^x_6 = \frac{2 t_x L}{3} \quad f^y_6 = 0\\
-		&f^x_3 = \frac{t_x L}{6} \quad f^y_3 = \frac{t_y L}{6}\\
-		&f^x_7 = 0 \quad f^y_7 = \frac{2 t_y L}{3}\\
-		&f^x_4 = 0 \quad f^y_4 = \frac{t_y L}{6}
+		&f^x_2 = \frac{q_x L}{6} \quad f^y_2 = 0\\
+		&f^x_6 = \frac{2 q_x L}{3} \quad f^y_6 = 0\\
+		&f^x_3 = \frac{q_x L}{6} \quad f^y_3 = \frac{q_y L}{6}\\
+		&f^x_7 = 0 \quad f^y_7 = \frac{2 q_y L}{3}\\
+		&f^x_4 = 0 \quad f^y_4 = \frac{q_y L}{6}
 	\end{split}
 \end{equation}
 %
@@ -566,28 +750,28 @@ Portanto temos,
 	\begin{split}
 		&\mathbf{f}_2 =
 		\begin{bmatrix}
-			\frac{t_x L}{6}\\
+			\frac{q_x L}{6}\\
 			0
 		\end{bmatrix}\\
 		&\mathbf{f}_3 =
 		\begin{bmatrix}
-		\frac{t_x L}{6}\\
-		\frac{t_y L}{6}
+		\frac{q_x L}{6}\\
+		\frac{q_y L}{6}
 		\end{bmatrix}\\
 		&\mathbf{f}_4 =
 		\begin{bmatrix}
 		0\\
-		\frac{t_y L}{6}
+		\frac{q_y L}{6}
 		\end{bmatrix}\\
 		&\mathbf{f}_6 =
 		\begin{bmatrix}
-		\frac{2 t_x L}{3}\\
+		\frac{2 q_x L}{3}\\
 		0
 		\end{bmatrix}\\
 		&\mathbf{f}_7 =
 		\begin{bmatrix}
 		0\\
-		\frac{2 t_y L}{3}
+		\frac{2 q_y L}{3}
 		\end{bmatrix}
 	\end{split}
 \end{equation}
