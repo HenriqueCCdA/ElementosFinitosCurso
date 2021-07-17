@@ -1,0 +1,32 @@
+\section{Teorema do divergente}
+
+A teorema do divergente é dado por:
+%
+\begin{equation}
+	\int_{\Omega} \nabla \bullet \pmb{\bar F} d \Omega = \int_{\Gamma} \pmb{\bar F} \bullet \pmb{\bar n} d \Gamma
+\end{equation} 
+%
+O vetor $\pmb{\bar F}$ e  $\pmb{\bar n}$ podem ser escritos como,
+%
+\begin{equation}
+	\begin{split}
+	&\pmb{\bar F} = \left(F_x, F_y, F_z\right)\\
+	&\pmb{\bar n} = \left(n_x, n_y, n_z\right)
+	\end{split}
+\end{equation} 
+%
+Assim da para escrever o teorema do divergente como,
+%
+\begin{equation}
+\int_{\Omega} \left(\mdp{F_x}{x} + \mdp{F_y}{y} + \mdp{F_z}{z}\right) d \Omega = \int_{\Gamma} \left(F_x n_x + F_y n_y + F_z n_z\right) d \Gamma
+\end{equation}
+%
+Pode-se provar ainda que,
+%
+\begin{equation}
+	\begin{split}
+		&\int_{\Omega} \mdp{F_x}{x} d \Omega = \int_{\Gamma} F_x n_x d \Gamma\\
+		&\int_{\Omega} \mdp{F_y}{y} d \Omega = \int_{\Gamma} F_y n_y d \Gamma\\
+		&\int_{\Omega} \mdp{F_z}{z} d \Omega = \int_{\Gamma} F_z n_z d \Gamma
+	\end{split}
+\end{equation} 
