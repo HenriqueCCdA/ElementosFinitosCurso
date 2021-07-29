@@ -1,5 +1,38 @@
 \section{Cap 6 - Elementos isoparamétricos}
 
+\subsection{Polinômio de Lagrange}
+
+Formula do polinômio de Lagrange de grau $P$ é
+
+\begin{equation}
+	l^p_i(\xi) = \prod ^{p+1}_{k=1,k\neq i} \frac{\xi - \xi_k}{\xi_i - \xi_k}
+\end{equation}
+
+Elementos lineares:
+
+\begin{equation}
+	l^1_1(\xi) = \prod ^{2}_{k=1,k\neq 1} \frac{\xi - \xi_k}{\xi_1 - \xi_k} = \frac{\xi - \xi_2}{\xi_1 - \xi_2} = \frac{\xi - 1}{-1 -1} = \frac{1 - \xi}{2}
+\end{equation}
+
+\begin{equation}
+	l^1_2(\xi) = \prod ^{2}_{k=1,k\neq 2} \frac{\xi - \xi_k}{\xi_2 - \xi_k} = \frac{\xi - \xi_1}{\xi_2 - \xi_1} = \frac{\xi + 1}{1 + 1} = \frac{1 + \xi}{2}
+\end{equation}
+
+Elementos quadráticos:
+
+\begin{equation}
+	l^2_1(\xi) = \prod ^{3}_{k=1,k\neq 1} \frac{\xi - \xi_k}{\xi_1 - \xi_k} = \frac{\xi - \xi_2}{\xi_1 - \xi_2} \frac{\xi - \xi_3}{\xi_1 - \xi_3} = \frac{(\xi - 1)\xi}{2}
+\end{equation}
+
+\begin{equation}
+	l^2_2(\xi) = \prod ^{3}_{k=1,k\neq 2} \frac{\xi - \xi_k}{\xi_2 - \xi_k} = \frac{\xi - \xi_1}{\xi_2 - \xi_1} \frac{\xi - \xi_3}{\xi_2 - \xi_3} = \frac{(\xi + 1)\xi}{2}
+\end{equation}
+
+\begin{equation}
+	l^2_3(\xi) = \prod ^{3}_{k=1,k\neq 3} \frac{\xi - \xi_k}{\xi_3 - \xi_k} = \frac{\xi - \xi_1}{\xi_3 - \xi_1} \frac{\xi - \xi_2}{\xi_3 - \xi_2} = (\xi + 1)(1 - \xi)
+\end{equation}
+
+
 \subsection{Exercícios}
 
 \subsubsection{1) Determinar as funções de interpolação dos elementos}

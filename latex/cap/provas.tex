@@ -1,5 +1,133 @@
 \section{Exercícios extras}
 
+
+\subsection{Q2 - prova - 2010}
+
+\begin{itemize}
+	\item a)	
+\end{itemize}
+
+%
+\begin{figure}[H]
+	\includegraphics[width=0.6\textwidth,center]{fig/q2_prova2010.PNG}
+	\caption{Numeração das equações.} 
+	\label{provas:Numeracao_eq}
+\end{figure}
+%
+\begin{itemize}
+	\item b)	
+\end{itemize}
+%
+A integral de forças no contorno é(pag. 22),
+%
+\begin{equation}
+	\mathbf{f}_i = \int_{\Gamma} \mathbf{N}_i \mathbf{\bar t} d\Gamma
+\end{equation}
+%
+em notação matricial temos,
+%
+\begin{equation}
+	\begin{bmatrix}
+		f^x_i\\
+		f^y_i\\
+	\end{bmatrix}
+	=
+	\int_{\Gamma}
+	\begin{bmatrix}
+		N_i&0\\
+		0&N_i\\
+	\end{bmatrix}
+	\begin{bmatrix}
+		q_x\\
+		q_y\\
+	\end{bmatrix}
+	d\Gamma
+	=
+	\int_{\Gamma}
+	\begin{bmatrix}
+		N_i q_x\\
+		N_i q_y\\
+	\end{bmatrix}
+	d\Gamma
+	=
+	\begin{bmatrix}
+		\int_{\Gamma} N_i q_x d\Gamma\\
+		\int_{\Gamma} N_i q_y d\Gamma
+	\end{bmatrix}
+\end{equation}
+%
+Como a força são uniformes nos bordos,
+%
+\begin{equation}
+	\begin{bmatrix}
+		f^x_i\\
+		f^y_i\\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\int_{\Gamma} N_i q_x d\Gamma\\
+		\int_{\Gamma} N_i q_y d\Gamma
+	\end{bmatrix}
+\end{equation}
+%
+No problema $q_y = -q$ e $q_x = 0$, assim temos,
+%
+\begin{equation}
+	\begin{bmatrix}
+		f^x_i\\
+		f^y_i\\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0\\
+		-q \int_{\Gamma} N_i d\Gamma
+	\end{bmatrix}
+\end{equation}
+%
+Funções de interpolação na aresta do triangulo,
+%
+\begin{equation}
+	\begin{split}
+		&N_1 = \xi_1 \\ 
+		&N_2 = \xi_2 = (1 - \xi_1)
+	\end{split}  
+\end{equation}
+%
+As integrais são,
+\begin{equation}
+	\begin{split}
+		&f_1^y = -q \int_{\Gamma} N_1 d\Gamma = -q \int_{0}^{1} N_1 det J d\xi_1 = -q L \int_{0}^{1} \xi_1 d\xi_1 = -\frac{q L}{2}\\
+		&f_2^y = -q \int_{\Gamma} N_2 d\Gamma = -q \int_{0}^{1} N_2 det J d\xi_1 = -q L \int_{0}^{1} (1 - \xi_1) d\xi_1 =  -\frac{q L}{2}\\
+	\end{split}
+\end{equation}
+%
+Como $L = 1/2$, nos temos,
+%
+\begin{equation}
+	\begin{split}
+		&f_1^y = -\frac{q}{4}\\
+		&f_2^y = -\frac{q}{4}\\
+	\end{split}
+\end{equation}
+%
+A equação 2 só tem a contribuição do elemento $1$ já a equações 6 tem a contribuição dos elementos $1$ e $3$. A força nodal equivalente é assim:
+
+\color{blue}
+Reposta:
+\begin{equation}
+	\mathbf{f} = \begin{bmatrix}0 & -\frac{q}{4} & 0 & 0 & 0 & -\frac{q}{2} & 0 & 0 \end{bmatrix}	
+\end{equation}
+\color{black}
+%
+\begin{itemize}
+	\item c)	
+\end{itemize}
+%
+\begin{figure}[H]
+	\includegraphics[width=1.0\textwidth,center]{fig/q2_prova2010_c.PNG}
+	\caption{Perfil da matriz.} 
+\end{figure}
+
 \subsection{Q3 - prova - 2010}
 
 A matriz $\mathbf{B}$ é dada por,
@@ -293,6 +421,83 @@ Assim as derivas são,
 %
 Agora todo o procedimento é igual ao anterior.
 
+\color{red}
+
+\textbf{Como chegar na relação $\mathbf{B}\mathbf{u}$}   
+
+%
+\begin{equation}
+	\begin{bmatrix}
+		\varepsilon_x\\
+		\varepsilon_y\\
+		\gamma_{xy} 	
+	\end{bmatrix} = 
+	\begin{bmatrix}
+		\mdp{u}{x}\\
+		\mdp{v}{y}\\
+		\mdp{u}{y} + \mdp{v}{x} 	
+	\end{bmatrix}
+\end{equation}
+%
+\begin{equation}
+	\begin{bmatrix}
+		\varepsilon_x\\
+		\varepsilon_y\\
+		\gamma_{xy} 	
+	\end{bmatrix} = 
+	\begin{bmatrix}
+		\mdp{N_1}{x} u_1+ \mdp{N_2}{x}  u_2+ \mdp{N_3}{x}  u_3\\
+		\mdp{N_1}{y} v_1+ \mdp{N_2}{y}  v_2+ \mdp{N_3}{y}  v_3\\
+		\mdp{N_1}{y} u_1+ \mdp{N_2}{y}  u_2+ \mdp{N_3}{y}  u_3 + \mdp{N_1}{x} v_1+ \mdp{N_2}{x} v_2 + \mdp{N_3}{x} v_3 	
+	\end{bmatrix}
+\end{equation}
+%
+\begin{equation}
+	\begin{bmatrix}
+		\varepsilon_x\\
+		\varepsilon_y\\
+		\gamma_{xy} 	
+	\end{bmatrix} = 
+	\begin{bmatrix}
+		\mdp{N_1}{x}& 0           & \mdp{N_2}{x} & 0           & \mdp{N_3}{x}&           0 \\
+		0           & \mdp{N_1}{y}&            0 & \mdp{N_2}{y}&            0& \mdp{N_3}{y} \\
+		\mdp{N_1}{y}& \mdp{N_1}{x}& \mdp{N_2}{y} & \mdp{N_2}{x}& \mdp{N_3}{y}& \mdp{N_3}{x} 
+	\end{bmatrix}
+	\begin{bmatrix}
+	u_1	\\
+	v_1	\\
+	u_2	\\
+	v_2	\\
+	u_3	\\
+	v_3	\\
+	\end{bmatrix}
+\end{equation}
+%
+\begin{equation}
+	\begin{bmatrix}
+		\varepsilon_x\\
+		\varepsilon_y\\
+		\gamma_{xy} 	
+	\end{bmatrix} = 
+	\begin{bmatrix}
+		\mathbf{B}_1& \mathbf{B}_2 & \mathbf{B}_3 
+	\end{bmatrix}
+	\begin{bmatrix}
+		u_1	\\
+		v_1	\\
+		u_2	\\
+		v_2	\\
+		u_3	\\
+		v_3	\\
+	\end{bmatrix}
+\end{equation}
+%
+\color{black}
+%
+
+
+
+
 \subsection{Q1 - prova - 2012}
 
 A integral de forças no contorno é(pag. 22),
@@ -333,21 +538,7 @@ em notação matricial temos,
 	\end{bmatrix}
 \end{equation}
 %
-Como a força são uniformes nos bordos,
-%
-\begin{equation}
-	\begin{bmatrix}
-		f^x_i\\
-		f^y_i\\
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		 \int_{\Gamma} N_i q_x d\Gamma\\
-         \int_{\Gamma} N_i q_y d\Gamma
-	\end{bmatrix}
-\end{equation}
-%
-N problema $q_y = 0$ e $q_x$ é uma função linear, assim temos,
+No problema $q_y = 0$ e $q_x$ é uma função linear, assim temos,
 %
 \begin{equation}
 	\begin{bmatrix}
@@ -399,8 +590,8 @@ As integrais são,
 %
 Na Figura \ref{provas:coordenadas_de_area} temos as áreas utilizadas no sistema de coordenadas locais do triangulo. 
 \begin{figure}[H]
-	\includegraphics[width=0.6\textwidth,center]{fig/q1_prova_2012.PNG}
-	\caption{Coordenadas de área do triângulo} 
+	\includegraphics[width=0.6\textwidth,center]{fig/q1_triangulo_2012.PNG}
+	\caption{Coordenadas de área do triângulo.} 
 	\label{provas:coordenadas_de_area}
 \end{figure}
 %

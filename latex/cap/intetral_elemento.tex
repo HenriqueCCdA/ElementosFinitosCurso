@@ -1,0 +1,70 @@
+\section{Integral nos elementos}
+
+\begin{equation}
+k_{45} = \int_{\Omega} \mdp{N_5}{x}\mdp{N_4}{x} + \mdp{N_5}{y}\mdp{N_4}{y} d \Omega
+\end{equation}
+%
+Para coordenadas locais do triangulo temos: 
+%
+\begin{equation}
+k_{45} = k^e_{12} = \int_{0}^{1} \int_{0}^{1-\xi_1} \left( \mdp{N_2}{x}\mdp{N_1}{x} + \mdp{N_2}{y}\mdp{N_1}{y} \right) |J| d \xi_1 d \xi_2 
+\end{equation}
+%
+A matriz jacobiana é:
+%
+\begin{equation}
+	J = 
+	\begin{bmatrix}
+		\Delta x_{46} & \Delta y_{46}\\
+		\Delta x_{56} & \Delta y_{56}\\
+	\end{bmatrix}
+\end{equation}
+%
+O determinante do jacobiano é:
+%
+\begin{equation}
+	|J| = 2A
+\end{equation}
+%
+As derivadão são calcular pela a inversa do jacobiano,
+%
+\begin{equation}
+	\begin{bmatrix}
+	\mdp{N_i}{x}\\
+	\mdp{N_i}{y}\\
+	\end{bmatrix}	
+	=
+	\frac{1}{|J|}
+	\begin{bmatrix}
+	\Delta y_{56}&-\Delta y_{46}\\
+	-\Delta x_{56}&\Delta x_{46}\\
+	\end{bmatrix}
+	\begin{bmatrix}
+	\mdp{N_i}{\xi_1}\\
+	\mdp{N_i}{\xi_2}\\
+\end{bmatrix}
+\end{equation}
+%
+As derivadas são,
+%
+\begin{equation}
+\begin{split}
+	&\mdp{N_1}{x} =  \frac{\Delta y_{56}}{|J|}\\
+	&\mdp{N_1}{y} = -\frac{\Delta x_{56}}{|J|} = \frac{\Delta x_{65}}{|J|}\\
+	&\mdp{N_2}{x} = -\frac{\Delta y_{46}}{|J|} = \frac{\Delta y_{64}}{|J|}\\
+	&\mdp{N_2}{y} =  \frac{\Delta x_{46}}{|J|}\\		
+\end{split}
+\end{equation}
+%
+Substituindo na integral,
+%
+\begin{equation}
+\begin{split}
+	&k^e_{12} = \int_{0}^{1} \int_{0}^{1-\xi_1} \left(\frac{\Delta y_{64}}{|J|} \frac{\Delta y_{56}}{|J|} + \frac{\Delta x_{46}}{|J|} \frac{\Delta x_{65}}{|J|} \right) |J| d \xi_1 d \xi_2\\
+	& k^e_{12} = \left(\frac{\Delta y_{64}}{|J|} \frac{\Delta y_{56}}{|J|} + \frac{\Delta x_{46}}{|J|} \frac{\Delta x_{65}}{|J|} \right) |J| \int_{0}^{1} \int_{0}^{1-\xi_1} d \xi_1 d \xi_2\\
+	& k^e_{12} = \frac{\Delta y_{64} \Delta y_{56} + \Delta x_{46} \Delta x_{65}}{4 A}
+\end{split}
+\end{equation}
+%
+
+
