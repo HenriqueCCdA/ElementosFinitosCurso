@@ -1,6 +1,6 @@
 # Curso de Elementos Finitos COPPE/UFRJ
 
-Repositório guarda os materias de estudo do curso de Posgradução **Introdução ao Método dos Elementos Finitos** do Programa de Engenharia Civil, COPPE / UFRJ. O livro de base do curso é o 
+Repositório guarda os materias de estudo do curso de Pos-graduação **MÉTODO DOS ELEMENTOS FINITOS I –COC752** do Programa de Engenharia Civil, COPPE / UFRJ. O livro de base do curso é o 
 [Introdução Ao Método Dos Elementos Finitos](https://www.lcm.com.br/site/#livros/detalhesLivro/introducao-ao-metodo-dos-elementos-finitos.html) lançado em 2020. O curso é ministrado pelo Fernando Luiz Bastos Ribeiro.
 
 ## PDF
