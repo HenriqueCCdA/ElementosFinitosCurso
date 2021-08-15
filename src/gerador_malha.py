@@ -2,7 +2,7 @@ import numpy as np
 
 # ******************************************************************************
 def gerando_coordenadas(numero_de_nos:int , n_nos_y:int , n_nos_x:int,
-                       L_y: float, L_x:float):
+                       L_y: float, L_x:float, dy: float, dx: float):
     '''
     ----------------------------------------------------------------------------
     Gera as coordenadas da malha
@@ -12,6 +12,8 @@ def gerando_coordenadas(numero_de_nos:int , n_nos_y:int , n_nos_x:int,
     @param n_nos_x       - Numero de nos da direcao x
     @param L_y           - Dimenção na direcao y
     @param L_x           - Dimenção na direcao x
+    @param dy            - Discretizacao na direcao y
+    @param dx            - Discretizacao na direcao x
     ----------------------------------------------------------------------------
     @return Retorna as coordendas da malha na forma:
        |x1,y1|
