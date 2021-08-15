@@ -156,7 +156,7 @@ def escreve_arquivo_txt(prefixo:str, numero_de_nos:int, numero_de_el:int, x, el)
 # ******************************************************************************
 def escreve_arquivo_vtk(prefixo:str, numero_de_nos:int, numero_de_el:int,
                         x, el, nos_de_baixo, nos_de_cima, 
-                        nos_de_esquerda, nos_de_direita):
+                        nos_da_esquerda, nos_da_direita):
 
     '''
     ----------------------------------------------------------------------------
