@@ -71,7 +71,7 @@ def gera_as_conectividade(numero_de_el:int, n_div_y:int, n_div_x:int):
     el = np.ndarray((numero_de_el, 4), dtype=int)
 
     id = 0
-
+    n_nos_x = n_div_x + 1
     for linha in range(0, n_div_y):
         for coluna in range(0, n_div_x):
             no1 = linha*(n_nos_x) + coluna
